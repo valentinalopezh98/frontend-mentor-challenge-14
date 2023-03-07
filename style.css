@@ -1,0 +1,206 @@
+:root {
+    --bar-gradient-from: hsl(6, 100%, 80%);
+    --bar-gradient-to: hsl(335, 100%, 65%);
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-size: 0.875rem;
+    font-family: 'Raleway', sans-serif;
+    background: url(./images/bg-mobile.png) no-repeat;
+    background-size: cover;
+    font-weight: 400;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sr-only{
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.data-storage-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0 25px;
+}
+
+.data-storage-first {
+    width: 100%;
+    height: 200px;
+    background-color: var(--dark-blue);
+    border-radius: 10px 100px 10px 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--very-dark-blue);
+    padding: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.data-storage-second {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background-color: var(--dark-blue);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 35px 30px;
+    color: var(--pale-blue);
+}
+
+.data-storage-second p span {
+    font-weight: 700;
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 100%;
+    min-height: 18px;
+    background-color: var(--very-dark-blue);
+    border-radius: 50px;
+    padding: 2px;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 75%;
+    min-height: 14px;
+    background-image: linear-gradient(to right, var(--bar-gradient-from), var(--bar-gradient-to));
+    border-radius: 50px;
+    padding: 2px;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.storage {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.storage-left {
+    position: absolute;
+    background-color: white;
+    color: var(--grayish-blue);
+    width: 170px;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    bottom: -35px;
+} 
+
+.storage-left span {
+    font-size: 2.5rem;
+    color: black;
+    font-weight: 700;
+} 
+
+@media (min-width: 950px) {
+    body {
+        background: var(--very-dark-blue) url(./images/bg-desktop.png) no-repeat bottom;
+        background-size: 100%;
+    }
+    
+    .data-storage-component {
+        flex-direction: row;
+        max-width: 930px;
+        align-items: flex-end;
+        gap: 30px;
+    }
+
+    .data-storage-first {
+        width: 40%;
+    }
+
+    .data-storage-second {
+        width: 60%;
+    }
+
+    .storage-left {
+        top: -35px;
+        right: 40px;
+        border-radius: 10px 10px 0 10px;
+    }
+
+    .storage-left::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+        width: 0;
+        height: 0;
+        border-bottom: 0;
+        border-left: 20px solid transparent;
+        border-top: 20px solid white;
+        clear: both;
+    }
+}
